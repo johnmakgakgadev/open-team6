@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LocationHomePage</string>
+    <string name="get_gps_location">Get GPS Location</string>
+    <string name="get_location">Get location</string>
+</resources>
