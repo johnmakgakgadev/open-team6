@@ -1,5 +1,7 @@
 package com.example.locationhomepage
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,7 +15,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import com.example.locationhomepage.Maps.MapsActivity
+
 
 class MainActivity : AppCompatActivity() , LocationListener{
     private lateinit var locationManager: LocationManager
@@ -27,19 +30,50 @@ class MainActivity : AppCompatActivity() , LocationListener{
         setContentView(R.layout.activity_main)
         Latitude = findViewById(R.id.Lat_txt)
         val button: Button = findViewById(R.id.getLocation)
+        val mapsbtn : Button = findViewById(R.id.maps)
         Longitude = findViewById(R.id.Long_txt)
+        getLocation()
+
 
         button.setOnClickListener {
             getLocation()
         }
+
+        mapsbtn.setOnClickListener {
+
+            if (IsTextfieldEmpty()){
+
+                Toast.makeText(applicationContext, "Check if Location is enabled",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("Longitude", Longitude.text)
+                intent.putExtra("Latitude", Latitude.text)
+
+                startActivity(intent)
+            }
+
+        }
+
+
     }
+
+    private fun IsTextfieldEmpty() : Boolean{
+      if(     Longitude.text == null && Latitude.text==null){
+
+      }
+
+
+             return false
+    }
+
 
     override fun onLocationChanged(location: Location) {
       Latitude = findViewById(R.id.Lat_txt)
-        Latitude.text = "Your latitude is:"+ location.latitude
+        Latitude.text = location.latitude.toString()
 
 
-        Longitude.text = "Your latitude is:"+ location.longitude
+        Longitude.text = location.longitude.toString()
 
     }
 
@@ -52,9 +86,18 @@ class MainActivity : AppCompatActivity() , LocationListener{
         if (isLocationEnabled()){
 
             locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            if ((ContextCompat.checkSelfPermission(applicationContext,android.Manifest.permission.ACCESS_FINE_LOCATION)
-                        !=PackageManager.PERMISSION_GRANTED)) {
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),locationPermissionCode)
+
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION),locationPermissionCode)
+
+                return
             }
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5f,this)
         }
