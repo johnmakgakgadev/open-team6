@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import com.example.locationhomepage.Maps.MapsActivity
 
 
+
 class MainActivity : AppCompatActivity() , LocationListener{
     private lateinit var locationManager: LocationManager
     private lateinit var  Longitude : TextView
@@ -25,14 +26,25 @@ class MainActivity : AppCompatActivity() , LocationListener{
     private val locationPermissionCode = 2
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         Latitude = findViewById(R.id.Lat_txt)
+
         val button: Button = findViewById(R.id.getLocation)
+        val pricecomp_btn:Button=findViewById(R.id.price_btn)
         val mapsbtn : Button = findViewById(R.id.maps)
         Longitude = findViewById(R.id.Long_txt)
         getLocation()
+
+pricecomp_btn.setOnClickListener {
+    val intent = Intent(applicationContext, PricingActivity::class.java)
+    startActivity(intent)
+}
+
 
 
         button.setOnClickListener {
@@ -57,6 +69,10 @@ class MainActivity : AppCompatActivity() , LocationListener{
 
 
     }
+
+
+
+
 
     private fun IsTextfieldEmpty() : Boolean{
       if(     Longitude.text == null && Latitude.text==null){
