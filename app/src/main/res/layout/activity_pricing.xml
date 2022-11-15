@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".PricingActivity">
 
     <RelativeLayout
         android:id="@+id/relative"
@@ -171,6 +171,7 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomview"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/bottomview_background"
