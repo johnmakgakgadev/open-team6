@@ -16,10 +16,19 @@
         android:theme="@style/Theme.LocationHomePage"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreen"
+            android:name=".Login1"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Interface.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,15 +62,18 @@
         </activity>
         <activity
             android:name=".PricingActivity"
-            android:exported="true">
+            android:exported="true" />
+        <activity
+            android:name=".Interface.Login"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -84,12 +96,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

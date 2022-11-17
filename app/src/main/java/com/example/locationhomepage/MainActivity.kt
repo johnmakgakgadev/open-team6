@@ -74,14 +74,9 @@ pricecomp_btn.setOnClickListener {
 
 
 
-    private fun IsTextfieldEmpty() : Boolean{
-      if(    ){
-
-      }
 
 
-             return false
-    }
+
 
 
     override fun onLocationChanged(location: Location) {
