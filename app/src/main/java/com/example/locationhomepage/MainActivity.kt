@@ -53,7 +53,7 @@ pricecomp_btn.setOnClickListener {
 
         mapsbtn.setOnClickListener {
 
-            if (IsTextfieldEmpty()){
+            if ( Longitude.text.isBlank()  && Latitude.text.isNullOrBlank()){
 
                 Toast.makeText(applicationContext, "Check if Location is enabled",Toast.LENGTH_SHORT).show()
             }
@@ -75,7 +75,7 @@ pricecomp_btn.setOnClickListener {
 
 
     private fun IsTextfieldEmpty() : Boolean{
-      if(     Longitude.text == null && Latitude.text==null){
+      if(    ){
 
       }
 
