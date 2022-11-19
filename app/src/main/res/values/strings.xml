@@ -3,4 +3,5 @@
     <string name="get_gps_location">Get GPS Location</string>
     <string name="get_location">Get location</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="your_destination">Your Destination</string>
 </resources>
