@@ -4,4 +4,6 @@
     <string name="get_location">Get location</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="your_destination">Your Destination</string>
+    <string name="map_id">192fd3274887097d</string>
+
 </resources>

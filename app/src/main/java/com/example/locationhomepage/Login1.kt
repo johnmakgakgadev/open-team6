@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.locationhomepage.Maps.MapsActivity
 
 class Login1 : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -15,7 +16,7 @@ class Login1 : AppCompatActivity() {
         val login_btn : Button = findViewById(R.id.loginbtn)
 
         login_btn.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, MapsActivity::class.java)
             startActivity(intent)
         }
     }
