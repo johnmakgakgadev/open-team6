@@ -16,6 +16,13 @@
         android:theme="@style/Theme.LocationHomePage"
         tools:targetApi="31">
         <activity
+            android:name=".CompareActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Interface.PersistentBottomSheetActivity"
             android:exported="false">
             <meta-data
