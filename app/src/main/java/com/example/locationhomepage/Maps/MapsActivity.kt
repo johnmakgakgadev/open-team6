@@ -14,7 +14,7 @@ import android.os.Looper
 import android.provider.Settings
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.viewmodel.CreationExtras.Empty.map
+
 import com.example.locationhomepage.Login1
 
 
@@ -150,9 +150,9 @@ private lateinit var binding: ActivityMapsBinding
                 val CurrentLocation = LatLng(getLatt!!, getLongg!!)
 
                 mMap.addMarker(MarkerOptions().position(CurrentLocation).title("Marker in Current Location"))
-                // mMap.addMarker(MarkerOptions().draggable(true))
+               //  mMap.addMarker(MarkerOptions().draggable(true))
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(CurrentLocation))
-                //    mMap.setMinZoomPreference(13.0F)
+
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CurrentLocation, 16.0F))
             } catch (e:Exception){
 
