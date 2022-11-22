@@ -1,2 +1,6 @@
-# open-team6
-dennis branch contains an activity that shows the users current long and lat, which can be passed to a map activity to show users location on the map
+# RideHail
+To first run the project you must open the local properties file which can be found in gradle scripts
+Where you will see this line sdk.dir=C\:\\Users\\Dennis\\AppData\\Local\\Android\\Sdk
+You need to change the "Dennis" in that path to whatever the your user is.
+
+
