@@ -3,13 +3,17 @@ package com.example.locationhomepage;
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.locationhomepage.R
+import com.example.locationhomepage.adapter.PricingAdapter
 import com.example.locationhomepage.databinding.ActivityPricingBinding
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PricingActivity : AppCompatActivity() {
     private  lateinit var  binding: ActivityPricingBinding
+
+    private val pricingAdapter by lazy { PricingAdapter()}
     override fun onCreate(savedInstanceState: Bundle?) {
         binding =ActivityPricingBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -33,5 +37,17 @@ class PricingActivity : AppCompatActivity() {
             }
             false
         })
+
+
+        preparePricingRecyclerView()
+
+
+
+    }
+
+
+    private fun preparePricingRecyclerView(){
+        binding.rvPricing.adapter = pricingAdapter
+        binding.rvPricing.layoutManager = LinearLayoutManager(this)
     }
 }

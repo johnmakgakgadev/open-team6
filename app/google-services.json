@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "949677524817",
+    "project_id": "hail-ride-d820e",
+    "storage_bucket": "hail-ride-d820e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949677524817:android:5bb6b9f49a50d6d9b0f570",
+        "android_client_info": {
+          "package_name": "com.example.locationhomepage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949677524817-n1kuase5hnm3vu8idcj755cso0iegk1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPgUAah98u7oZKDd7ZNhXyZ8CRrCg7__0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949677524817-n1kuase5hnm3vu8idcj755cso0iegk1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
