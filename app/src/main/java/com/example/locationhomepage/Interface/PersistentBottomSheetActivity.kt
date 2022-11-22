@@ -18,18 +18,24 @@ import androidx.core.app.ActivityCompat
 import com.example.locationhomepage.Maps.MapsActivity
 import com.example.locationhomepage.PricingActivity
 import com.example.locationhomepage.R
+import com.example.locationhomepage.databinding.ActivityBikesBinding.inflate
+import com.example.locationhomepage.databinding.ActivityMapsBinding
+import com.example.locationhomepage.databinding.PersistentBottomSheetBinding
+import com.example.locationhomepage.databinding.PersistentBottomSheetBinding.*
 
-class PersistentBottomSheetActivity : AppCompatActivity(),LocationListener {
+class PersistentBottomSheetActivity : AppCompatActivity() {
     private lateinit var locationManager: LocationManager
     private lateinit var  Longitude : TextView
     private lateinit var  Latitude : TextView
+    private lateinit var binding: PersistentBottomSheetBinding
     private val locationPermissionCode = 2
 
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.persistent_bottom_sheet)
+        binding = PersistentBottomSheetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         Latitude = findViewById(R.id.set_location_txt)
@@ -38,7 +44,7 @@ class PersistentBottomSheetActivity : AppCompatActivity(),LocationListener {
         val pricecomp_btn: Button =findViewById(R.id.getprice_btn)
         val mapsbtn : Button = findViewById(R.id.maps)
         Longitude = findViewById(R.id.Long_txt)
-        getLocation()
+
 
         pricecomp_btn.setOnClickListener {
             val intent = Intent(applicationContext, PricingActivity::class.java)
@@ -47,80 +53,11 @@ class PersistentBottomSheetActivity : AppCompatActivity(),LocationListener {
 
 
 
-        button.setOnClickListener {
-            getLocation()
-        }
-
-        mapsbtn.setOnClickListener {
-
-            if ( Longitude.text.isBlank()  && Latitude.text.isNullOrBlank()){
-
-                Toast.makeText(applicationContext, "Check if Location is enabled", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                val intent = Intent(this, MapsActivity::class.java)
-                intent.putExtra("Longitude", Longitude.text)
-                intent.putExtra("Latitude", Latitude.text)
-
-                startActivity(intent)
-            }
-
-        }
-        }
-
-
-        override fun onLocationChanged(location: Location) {
-            Latitude = findViewById(R.id.Lat_txt)
-            Latitude.text = location.latitude.toString()
-
-
-            Longitude.text = location.longitude.toString()
 
         }
 
-        private fun isLocationEnabled(): Boolean{
-            locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            return  locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)|| locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-        }
 
-        private fun getLocation(){
-            if (isLocationEnabled()){
 
-                locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-                if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    ActivityCompat.requestPermissions(this, arrayOf(
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION),locationPermissionCode)
 
-                    return
-                }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5f,this)
-            }
-
-            else{
-                Toast.makeText(this,"Turn on Location", Toast.LENGTH_SHORT).show()
-                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                startActivity(intent)
-            }
-
-        }
-        override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            if (requestCode == locationPermissionCode) {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(applicationContext, "Permission Granted", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(applicationContext, "Permission Denied", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }

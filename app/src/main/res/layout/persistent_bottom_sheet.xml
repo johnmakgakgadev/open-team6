@@ -15,12 +15,11 @@
 
     <Button
         android:id="@+id/getprice_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="342dp"
+        android:layout_height="79dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="32dp"
-        android:background="#03A9F4"
         android:text="GET PRICES"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

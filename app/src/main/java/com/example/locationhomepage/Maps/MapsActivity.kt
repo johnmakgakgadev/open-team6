@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.example.locationhomepage.R
 import com.example.locationhomepage.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener {
     private lateinit var locationManager: LocationManager
@@ -46,7 +47,7 @@ private lateinit var binding: ActivityMapsBinding
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         var mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
-
+GoogleMapOptions().mapId(resources.getString(R.string.map_id))
         mapFragment.getMapAsync(this)
 
 
@@ -56,10 +57,6 @@ private lateinit var binding: ActivityMapsBinding
 
             getLocation()
 
-       var  mapFragments = MapFragment.newInstance(
-            GoogleMapOptions()
-                .mapId(resources.getString(R.string.map_id))
-        )
 
 
       // Toast.makeText(applicationContext,"Your lat is "+getLatt.toString(), Toast.LENGTH_SHORT).show()
@@ -96,9 +93,11 @@ private lateinit var binding: ActivityMapsBinding
                         Manifest.permission.ACCESS_FINE_LOCATION),locationPermissionCode)
 
                     return
+
+
                 }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5f,this)
-            }
+                    }
 
             else{
                 Toast.makeText(this,"Turn on Location", Toast.LENGTH_SHORT).show()
@@ -135,11 +134,14 @@ private lateinit var binding: ActivityMapsBinding
 
 
     }
+    private fun setMapLongClick(map:GoogleMap){
+        map.setOnMapLongClickListener { LatLng ->map.addMarker(MarkerOptions().position(LatLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))}
+    }
 
 
     override fun onMapReady(googleMap: GoogleMap) {
 
-
+setMapLongClick(googleMap)
         Handler(Looper.getMainLooper()).postDelayed({
             try {
 
@@ -149,19 +151,37 @@ private lateinit var binding: ActivityMapsBinding
 
                 val CurrentLocation = LatLng(getLatt!!, getLongg!!)
 
-                mMap.addMarker(MarkerOptions().position(CurrentLocation).title("Marker in Current Location"))
-               //  mMap.addMarker(MarkerOptions().draggable(true))
+                mMap.addMarker(MarkerOptions().position(CurrentLocation).icon(BitmapDescriptorFactory
+                    .defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+                    .title("Current Location")
+                    .draggable(true))
+                //mMap.addMarker(MarkerOptions().position(CurrentLocation).title("Marker in Current Location"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(CurrentLocation))
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CurrentLocation, 16.0F))
+
+
+
             } catch (e:Exception){
 
-                Toast.makeText(applicationContext,"Check if Location is enabled",Toast.LENGTH_SHORT).show()
+               // Toast.makeText(applicationContext,"Check if Location is enabled",Toast.LENGTH_SHORT).show()
             }
 
 
-        }, 5000)
+        }, 6000)
+
+        binding.button.setOnClickListener {   mMap = googleMap
+
+            // Add a marker in Sydney and move the camera
+
+            val CurrentLocation = LatLng(getLatt!!, getLongg!!)
 
 
+           // mMap.addMarker(MarkerOptions().position(CurrentLocation).title("Marker in Current Location"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(CurrentLocation))
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CurrentLocation, 16.0F))
+
+        }
     }
 }
