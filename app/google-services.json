@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1051579113245",
+    "project_id": "hailride-project",
+    "storage_bucket": "hailride-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051579113245:android:02a6ad6b5f49098717cbf4",
+        "android_client_info": {
+          "package_name": "com.hailrideapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051579113245-7rrgdd25evsjv6373df7amjfueiaplgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsHTN2a5XUyomng1oGDHPy9E-IyRKb7V4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051579113245-7rrgdd25evsjv6373df7amjfueiaplgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
