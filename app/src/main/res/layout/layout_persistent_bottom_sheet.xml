@@ -2,43 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/persistent_bottom_sheet"
+    android:id="@+id/bottomSheet1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:behavior_hideable="false"
     android:background="@color/yellow"
-    android:orientation="vertical"
-    android:paddingBottom="9dp"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="56dp"
+    app:behavior_peekHeight="50dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-
-    <Button
-        android:id="@+id/getprice_btn"
-        android:layout_width="342dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="32dp"
-        android:text="GET PRICES"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintCircleRadius="360dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/set_location_txt" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="34dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/set_location_txt"
-        app:layout_constraintStart_toStartOf="@+id/set_dest_txt"
-        app:layout_constraintTop_toTopOf="@+id/set_location_txt"
-        app:srcCompat="@drawable/search" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -69,18 +39,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <TextView
+    <EditText
         android:id="@+id/set_location_txt"
-        android:layout_width="348dp"
+        android:layout_width="349dp"
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
 
         android:background="@drawable/roundedborder"
-        android:gravity="center_horizontal"
+        android:gravity="center|top"
         android:hint="Current Location"
         android:textAlignment="center"
-        android:textColor="#344CE3"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/set_dest_txt"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/set_dest_txt"
@@ -96,5 +66,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/clickforprice"
+        android:layout_width="183dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="32dp"
+        android:text="Compare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_location_txt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

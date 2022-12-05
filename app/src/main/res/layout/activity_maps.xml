@@ -8,8 +8,7 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
+    <androidx.fragment.app.FragmentContainerView xmlns:map="http://schemas.android.com/apk/res-auto"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="wrap_content"
@@ -17,20 +16,10 @@
         map:mapId="@string/map_id"
         tools:context=".Maps.MapsActivity" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:visibility="visible" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-    <include layout="@layout/persistent_bottom_sheet" />
+
+    <include layout="@layout/layout_persistent_bottom_sheet" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
