@@ -4,17 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -77,17 +68,7 @@
         <activity
             android:name=".PricingActivity"
             android:exported="true" />
-        <activity
-            android:name=".Interface.Login"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -101,7 +82,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value = "${MAPS_API_KEY}" />
 
         <activity
             android:name=".Maps.MapsActivity"
@@ -113,6 +94,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
     </application>
 
 </manifest>
