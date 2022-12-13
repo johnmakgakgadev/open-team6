@@ -236,20 +236,8 @@ private fun resetmarker() {
                     .title(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
                     .snippet("You are here")
                     .icon(getBitmapFromVector(R.drawable.ic_pickup, R.color.yellow))
-            //    SetDest.setText(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
+                SetDest.setText(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
                 mMap.addMarker(LocmarkerOptions)
-
-
-                val cameraPosition = CameraPosition.Builder()
-                    .target(getcoordinates)
-                    .zoom(17f)
-                    .build()
-
-                mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
-
-
-
-
             } else {
                 Toast.makeText(this, "No current location found", Toast.LENGTH_LONG).show()
             }
@@ -304,8 +292,8 @@ private fun resetmarker() {
                         .title(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
                         .snippet(address)
                         .icon(getBitmapFromVector(R.drawable.ic_pickup, R.color.yellow))
-                    SetDest.setText(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
                     mMap.addMarker(LocmarkerOptions)
+                    SetDest.setText(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
 
 
                     val cameraPosition = CameraPosition.Builder()
@@ -358,6 +346,7 @@ private fun resetmarker() {
 
             DestmarkerOptions.draggable(true)
             DestmarkerOptions.icon(picture)
+                .snippet("Your Destination")
             DestmarkerOptions.title(getcoordinates.toString().removePrefix("lat/lng: (").removeSuffix(")"))
             map.addMarker(DestmarkerOptions)
 
@@ -386,7 +375,22 @@ map.clear()
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.normal_map -> {
+                mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+                true
+            }
+            R.id.hybrid_map -> {
+                mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+                true
+            }
+            R.id.satellite_map -> {
+                mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                true
+            }
+            R.id.terrain_map -> {
+                mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
