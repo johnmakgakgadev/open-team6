@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.locationhomepage.Maps.MapsActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Settings"
+        android:id="@+id/normal_map"
+        android:title="Normal map"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/hybrid_map"
+        android:title="Hybrid map"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/satellite_map"
+        android:title="Satellite map"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/terrain_map"
+        android:title="Terrain map"
         app:showAsAction="never" />
 </menu>
