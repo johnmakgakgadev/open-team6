@@ -3,25 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/hailridepic"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/hailridepic"
         android:supportsRtl="true"
         android:theme="@style/Theme.LocationHomePage"
         tools:targetApi="31">
-        <activity
-            android:name=".Interface.PersistentBottomSheetActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
+
         <activity
             android:name=".Login1"
             android:exported="false">
@@ -71,17 +68,7 @@
         <activity
             android:name=".PricingActivity"
             android:exported="true" />
-        <activity
-            android:name=".Interface.Login"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -95,7 +82,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value = "${MAPS_API_KEY}" />
 
         <activity
             android:name=".Maps.MapsActivity"
@@ -107,6 +94,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
     </application>
 
 </manifest>

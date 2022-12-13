@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">LocationHomePage</string>
+    <string name="app_name">CompaRide</string>
     <string name="get_gps_location">Get GPS Location</string>
     <string name="get_location">Get location</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="your_destination">Your Destination</string>
+    <string name="map_id">192fd3274887097d</string>
+    <string name="CurrentLocation">Button</string>
+
 </resources>
